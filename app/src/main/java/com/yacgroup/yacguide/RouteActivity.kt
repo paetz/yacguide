@@ -96,6 +96,14 @@ class RouteActivity : TableActivity() {
         }
     }
 
+    override fun showParent(v: View) {
+        super.showParent(v)
+
+        val intent = Intent(this, RockActivity::class.java)
+        intent.putExtra(IntentConstants.SECTOR_KEY, _rock?.parentId)
+        startActivity(intent)
+    }
+
     override fun displayContent() {
         val layout = findViewById<LinearLayout>(R.id.tableLayout)
         layout.removeAllViews()
